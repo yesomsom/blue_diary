@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 function Today () {
   const now = new Date();
@@ -12,16 +13,35 @@ function Today () {
 
 export default function ProjectCreate() {
   const today = Today();
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const titleRef = useRef<HTMLInputElement>(null);  
+  const contentRef = useRef<HTMLInputElement>(null);
   
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    if(!isLoading && titleRef.current && contentRef.current) {
+      setIsLoading(true);
+
+      
+    }
+
+
+
+    
+  }
+
   return (
     <form>
-      <div>
+      <div onSubmit={onSubmit}>
         <label>Title</label>
-        <input type="text" placeholder="title"></input>
+        <input ref="{titleRef}" type="text" placeholder="title"></input>
       </div>
       <div>
         <label>Content</label>
-        <input type="text" placeholder="content"></input>
+        <input ref="{contentRef}" type="text" placeholder="content"></input>
       </div>
       <div>
         <label>Date</label>
@@ -29,8 +49,7 @@ export default function ProjectCreate() {
       </div>
       <div>
         <button>저장</button>
-        <Link to="/personal_main">취소</Link>
-        
+        <Link to="/personal_main">취소</Link>       
       </div>
     </form>
   )
