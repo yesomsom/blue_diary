@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 function Today () {
@@ -14,6 +14,8 @@ function Today () {
 export default function ProjectCreate() {
   const today = Today();
 
+  const history = useNavigate();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const titleRef = useRef<HTMLInputElement>(null);  
@@ -21,27 +23,44 @@ export default function ProjectCreate() {
   
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    alert("onSubmit");
 
     if(!isLoading && titleRef.current && contentRef.current) {
       setIsLoading(true);
 
-      
-    }
+      const title = titleRef.current.value;
+      const content = contentRef.current.value;
+      const date = Today();
 
-
-
-    
+      fetch('http://localhost:3003/project', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title,
+          content,
+          date,
+        }),
+      }).then(res => {
+        if(res.ok) {
+          alert("새로운 프로젝트가 완성되었습니다.");
+          history('/personal_main');
+          setIsLoading(false);
+        }
+      });
+    }  
   }
 
   return (
-    <form>
-      <div onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
+      <div>
         <label>Title</label>
-        <input ref="{titleRef}" type="text" placeholder="title"></input>
+        <input ref={titleRef} type="text" placeholder="title"></input>
       </div>
       <div>
         <label>Content</label>
-        <input ref="{contentRef}" type="text" placeholder="content"></input>
+        <input ref={contentRef} type="text" placeholder="content"></input>
       </div>
       <div>
         <label>Date</label>
