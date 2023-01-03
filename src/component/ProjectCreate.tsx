@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
+// 오늘 날짜 설정
+// 형식 YYYY-MM-DD
 function Today () {
   const now = new Date();
   const todayYear = now.getFullYear();
@@ -11,6 +13,7 @@ function Today () {
   return todayYear + "-" + todayMonth + "-" + todayDate;
 }
 
+// 새로운 프로젝트 생성 + data.json에 데이터 저장
 export default function ProjectCreate() {
   const today = Today();
 
@@ -23,7 +26,6 @@ export default function ProjectCreate() {
   
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    alert("onSubmit");
 
     if(!isLoading && titleRef.current && contentRef.current) {
       setIsLoading(true);
