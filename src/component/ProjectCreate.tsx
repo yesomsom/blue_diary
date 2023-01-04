@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import bigSmiling from '../img/icon_big_smiling_96.png';
+import smiling from '../img/icon_smiling_96.png';
+import crying from '../img/icon_crying_96.png';
+import frowning from '../img/icon_frowning_96.png';
+import pensive from '../img/icon_pensive_96.png';
 
 // 오늘 날짜 설정
 // 형식 YYYY-MM-DD
@@ -23,15 +28,17 @@ export default function ProjectCreate() {
 
   const titleRef = useRef<HTMLInputElement>(null);  
   const contentRef = useRef<HTMLInputElement>(null);
+  const feelingRef = useRef<HTMLInputElement>(null);
   
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if(!isLoading && titleRef.current && contentRef.current) {
+    if(!isLoading && titleRef.current && contentRef.current && feelingRef.current) {
       setIsLoading(true);
 
       const title = titleRef.current.value;
       const content = contentRef.current.value;
+      const feeling = feelingRef.current.value;
       const date = Today();
 
       fetch('http://localhost:3003/project', {
@@ -41,6 +48,7 @@ export default function ProjectCreate() {
         },
         body: JSON.stringify({
           title,
+          feeling,
           content,
           date,
         }),
@@ -54,18 +62,53 @@ export default function ProjectCreate() {
     }  
   }
 
+  const [chooseIcon, setChooseIcon] = useState('');
+
+  function bigSmileFunc() {
+    setChooseIcon('bigSmiling');
+  }
+
+  function smilingFunc() {
+    setChooseIcon('smiling');
+  }
+
+  function cryingFunc() {
+    setChooseIcon('crying');
+  }
+
+  function frowningFunc() {
+    setChooseIcon('frowning');
+  }
+
+  function pensiveFunc() {
+    setChooseIcon('pensive');
+  }
+  
   return (
     <form onSubmit={onSubmit}>
       <div>
-        <label>Title</label>
+        <label>제목</label>
         <input ref={titleRef} type="text" placeholder="title"></input>
       </div>
+
       <div>
-        <label>Content</label>
+        <label>오늘의 기분</label>
+        <div>
+          <button type="button" onClick={bigSmileFunc}><img src={bigSmiling}/></button>
+          <button type="button" onClick={smilingFunc}><img src={smiling}/></button>
+          <button type="button" onClick={cryingFunc}><img src={crying}/></button>
+          <button type="button" onClick={frowningFunc}><img src={frowning}/></button>
+          <button type="button" onClick={pensiveFunc}><img src={pensive}/></button>
+        </div>
+        <input ref={feelingRef} type="hidden" value={chooseIcon}></input>
+      </div>
+
+      <div>
+        <label>내용</label>
         <input ref={contentRef} type="text" placeholder="content"></input>
       </div>
       <div>
-        <label>Date</label>
+        <label>작성일</label>
         <span>{today}</span>
       </div>
       <div>

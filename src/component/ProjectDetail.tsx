@@ -79,16 +79,20 @@ export default function ProjectDetail() {
       {isModi ? 
         <div>
           <div>
-            <div>Title</div>
+            <div>제목</div>
             {projectNum.map(p => (
               <div key={p.id}>{p.title}</div>
             ))}
-            <div>Content</div>
+            <div>오늘의 기분</div>
+            {projectNum.map(p => (
+              <div key={p.id}>{p.feeling}</div>
+            ))}
+            <div>내용</div>
             {projectNum.map(p => (
               <div key={p.id}>{p.content}</div>
             ))}
           </div>
-          <div>Date</div>
+          <div>작성일</div>
           {projectNum.map(p => (
               <div key={p.id}>{p.date}</div>
             ))}
