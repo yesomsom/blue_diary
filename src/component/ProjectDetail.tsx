@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from '../hook/useFetch.ts';
 import { IProject } from './PersonalMain.tsx';
@@ -9,31 +9,57 @@ export default function ProjectDetail() {
 
   const proj = useParams().proj;
   const projectNum : IProject[] = useFetch(`http://localhost:3003/project?id=${proj}`);
+  
   const history = useNavigate();
+
   const [isModi, setIsModi] = useState(true);
 
-  function changeModifyVersion() {
-    setIsModi(!isModi); // 수정버튼 클릭시 isModi = true
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [date, setDate] = useState('');
+
+  // 입력한 값으로 제목 변경
+  function changeTitle(e) {
+    setTitle(e.target.value);
   }
 
+  // 입력한 값으로 내용 변경
+  function changeContent(e) {
+    setContent(e.target.value);
+  }
+
+  // 수정하기 모드로 변경
+  function changeModifyVersion() {
+    setIsModi(!isModi);
+    setTitle(projectNum[0].title);
+    setContent(projectNum[0].content);
+    setDate(projectNum[0].date);
+  }
+
+  // 수정한 것 저장하기
   function saveModify() {
     if(window.confirm('수정하시겠습니까?')) {
-      fetch(`http://localhost:3002/project/${proj}`, {
+      fetch(`http://localhost:3003/project/${proj}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-
+          title,
+          content,
+          date
         })
       }).then(res => {
         if(res.ok) {
           alert("수정 완료");
+          setIsModi(!isModi);
+          window.location.replace(`/project_detail/${proj}`); // 페이지를 새로고침
         }
       })
     }
   }
 
+  // 글 삭제하기
   function del() {
     if(window.confirm('삭제하시겠습니까?')) {
       fetch(`http://localhost:3003/project/${proj}`,{
@@ -73,17 +99,16 @@ export default function ProjectDetail() {
         <div>
           <div>
             <div>Title</div>
-            <input value={projectNum[0].title}></input>
+            <input type="text" value={title} onChange={changeTitle}></input>
             <div>Content</div>
-            <input value={projectNum[0].content}></input>
+            <input type="text" value={content} onChange={changeContent}></input>
           </div>
           <div>Date</div>
-          <div>{projectNum[0].date}</div> 
-          <button onClick={changeModifyVersion}>저장</button> 
+          <div>{date}</div> 
+          <button onClick={saveModify}>저장</button> 
           <button onClick={del}>삭제</button>
         </div>
       }
-  
     </>
   )
 }
