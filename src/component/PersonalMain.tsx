@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useFetch from '../hook/useFetch.ts';
 import Header from './Header.tsx';
+import ProjectDetail from "./ProjectDetail";
 
 export interface IProps {
   project: IProject;

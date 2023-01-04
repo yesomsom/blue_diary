@@ -12,8 +12,11 @@ export default function ProjectDetail() {
   const history = useNavigate();
   const [isModi, setIsModi] = useState(true);
 
-  function modify() {
-    setIsModi(!isModi); // 수정버튼 클릭시 isModi = false
+  function changeModifyVersion() {
+    setIsModi(!isModi); // 수정버튼 클릭시 isModi = true
+  }
+
+  function saveModify() {
     if(window.confirm('수정하시겠습니까?')) {
       fetch(`http://localhost:3002/project/${proj}`, {
         method: 'PUT',
@@ -38,7 +41,7 @@ export default function ProjectDetail() {
       }).then(res => {
         if(res.ok) {
           window.confirm('삭제 완료');
-          history('/project');
+          history('/personal_main');
         }
       });
     }
@@ -47,22 +50,40 @@ export default function ProjectDetail() {
   return (
     <>
       <Header/>
-      <div>
-        <div>Title</div>
-        {projectNum.map(p => (
-          <div key={p.id}>{p.title}</div>
-        ))}
-        <div>Content</div>
-        {projectNum.map(p => (
-          <div key={p.id}>{p.content}</div>
-        ))}
-      </div>
-      <div>Date</div>
-      {projectNum.map(p => (
-          <div key={p.id}>{p.date}</div>
-        ))}  
-      <button onClick={modify}>{isModi ? "수정" : "저장"}</button> 
-      <button onClick={del}>삭제</button>  
+      {isModi ? 
+        <div>
+          <div>
+            <div>Title</div>
+            {projectNum.map(p => (
+              <div key={p.id}>{p.title}</div>
+            ))}
+            <div>Content</div>
+            {projectNum.map(p => (
+              <div key={p.id}>{p.content}</div>
+            ))}
+          </div>
+          <div>Date</div>
+          {projectNum.map(p => (
+              <div key={p.id}>{p.date}</div>
+            ))}
+          <button onClick={changeModifyVersion}>수정</button> 
+          <button onClick={del}>삭제</button>
+        </div>
+        :
+        <div>
+          <div>
+            <div>Title</div>
+            <input value={projectNum[0].title}></input>
+            <div>Content</div>
+            <input value={projectNum[0].content}></input>
+          </div>
+          <div>Date</div>
+          <div>{projectNum[0].date}</div> 
+          <button onClick={changeModifyVersion}>저장</button> 
+          <button onClick={del}>삭제</button>
+        </div>
+      }
+  
     </>
   )
 }
