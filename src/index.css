@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 body {
   margin: 0;
@@ -61,21 +61,40 @@ a {
 .font_color_red {
   color: rgb(211 58 0);
   font-weight: 600;
+  font-size: 16.5px;
 }
 .font_color_red:hover {
-
+  color:#0047c1;
 }
 
 .wrap {
   padding: 30px;
 }
 
+.noto_font {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+
 .icon_right_arrow {
   width: 30px;
   height: 30px;
+  position: relative;
+  left: 10px;
+  top: 10px;
 }
 
-.img_blue_ocean {
+.new_img {
+  margin: 20px;
   width: 200px;
   height: 200px;
+}
+
+.btn_padding {
+  padding-bottom: 50px;
+}
+
+/* Header.tsx */
+.icon_plus {
+  width: 50px;
 }
