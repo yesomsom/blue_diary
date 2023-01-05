@@ -41,13 +41,13 @@ const Wrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 150vh;
+  height: 250vh;
   background-image: url(${blueOcean});
   background-size: cover;
 `;
 
 const Overlay = styled.div`
   background-color: #fffcfc7d;
-  width: 60%;
-  transform: translate(32%,0%);
+  width: 70%;
+  transform: translate(20%,0%);
 `;
