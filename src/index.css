@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&family=Pacifico&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,8 +14,62 @@ code {
     monospace;
 }
 
+/* all */
+ul {
+  list-style: none;
+}
 
-/* Main.tsx */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* App.js */
+
+
+/* WelcomeMain.tsx */
+.dancing_font {
+  font-family: 'Dancing Script', cursive;
+  font-size: 80px;
+  color: #074d7f;
+  padding-top: 100px;
+  animation: blink-effect 1.5s step-end infinite;
+}
+
+@keyframes blink-effect {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.font_color_red {
+  color: rgb(211 58 0);
+  font-weight: 600;
+}
+.font_color_red:hover {
+
+}
+
+.wrap {
+  padding: 30px;
+}
+
 .icon_right_arrow {
   width: 30px;
   height: 30px;
