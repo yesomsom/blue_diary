@@ -9,22 +9,22 @@ export default function WelcomeMain(){
   return(
     <Wrapper>
       <Overlay>
-        <h2 className="dancing_font">BLUE</h2>
+        <h1 className="dancing_font">BLUE</h1>
         <div className="wrap">
-          <h1>오늘 하루는 어땠나요?😊</h1>
+          <h1 className="noto_font">오늘 하루는 어땠나요?😊</h1>
           <Link to="/personal_main">
-            <span className="font_color_red">오늘의 이야기 작성하기</span>
+            <span className="font_color_red noto_font">오늘의 이야기 작성하기</span>
             <img className="icon_right_arrow" src={ rightArrow } alt="go to write"/>
           </Link>
         </div>
         <div className="wrap">
-          <h2>새롭게 올라온 이야기</h2>
-          <img className="img_blue_ocean" src={ blueOcean } alt=""/>
-          <img className="img_blue_ocean" src={ blueOcean } alt=""/>
-          <img className="img_blue_ocean" src={ blueOcean } alt=""/>
-          <div>
+          <h2 className="noto_font">새롭게 올라온 이야기</h2>
+          <img className="new_img" src={ blueOcean } alt=""/>
+          <img className="new_img" src={ blueOcean } alt=""/>
+          <img className="new_img" src={ blueOcean } alt=""/>
+          <div className="btn_padding">
             <Link to="/personal_main">
-              <span className="font_color_red">새로운 스토리 올리기</span>
+              <span className="font_color_red noto_font">새로운 스토리 올리기</span>
               <img className="icon_right_arrow" src={ rightArrow } alt="go to write"/>
             </Link>
           </div>
