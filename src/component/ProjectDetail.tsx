@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from '../hook/useFetch.ts';
 import { IProject } from './PersonalMain.tsx';
 import Header from './Header.tsx';
 import { useNavigate } from "react-router-dom";
+import FeelingImoticon from './FeelingImoticon.tsx';
 
 export default function ProjectDetail() {
 
@@ -15,8 +16,10 @@ export default function ProjectDetail() {
   const [isModi, setIsModi] = useState(true);
 
   const [title, setTitle] = useState('');
+  const [feeling, setFeeling] = useState('');
   const [content, setContent] = useState('');
   const [date, setDate] = useState('');
+
 
   // 입력한 값으로 제목 변경
   function changeTitle(e) {
@@ -32,6 +35,7 @@ export default function ProjectDetail() {
   function changeModifyVersion() {
     setIsModi(!isModi);
     setTitle(projectNum[0].title);
+    setFeeling(projectNum[0].feeling);
     setContent(projectNum[0].content);
     setDate(projectNum[0].date);
   }
@@ -46,6 +50,7 @@ export default function ProjectDetail() {
         },
         body: JSON.stringify({
           title,
+          feeling,
           content,
           date
         })
@@ -85,8 +90,8 @@ export default function ProjectDetail() {
             ))}
             <div>오늘의 기분</div>
             {projectNum.map(p => (
-              <div key={p.id}>{p.feeling}</div>
-            ))}
+              <div key={p.id}><FeelingImoticon feel={p.feeling} /></div>
+            ))}            
             <div>내용</div>
             {projectNum.map(p => (
               <div key={p.id}>{p.content}</div>
