@@ -5,6 +5,7 @@ import PersonalMain from './component/PersonalMain.tsx';
 import ProjectDetail from './component/ProjectDetail.tsx';
 import ProjectCreate from './component/ProjectCreate.tsx';
 import EmptyPage from './component/EmptyPage.tsx';
+import ProjectDetails from './component/ProjectDetails.tsx';
 
 function App() {
   return (
