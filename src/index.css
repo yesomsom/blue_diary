@@ -29,7 +29,9 @@ a {
 }
 
 /* App.js */
-
+.App {
+  width: 100%;
+}
 
 /* WelcomeMain.tsx */
 .dancing_font {
@@ -96,5 +98,18 @@ a {
 
 /* Header.tsx */
 .icon_plus {
-  width: 50px;
+  width: 40px;
+}
+
+/* ProjectDetails.tsx */
+.proj_title {
+  position: relative;
+  top: 10px;
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+.proj_date {
+  position: relative;
+  bottom: -20px;
 }
