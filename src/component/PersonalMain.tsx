@@ -2,17 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useFetch from '../hook/useFetch.ts';
 import Header from './Header.tsx';
-import ProjectDetail from "./ProjectDetail";
-
-export interface IProps {
-  project: IProject;
-}
+import ProjectDetails from "./ProjectDetails.tsx";
 
 export interface IProject {
   id: number;
   title: string;
+  feeling: string;
   content: string;
-  date: Date;
+  date: string;
 }
 
 export default function PersonalMain() {
@@ -20,16 +17,11 @@ export default function PersonalMain() {
   return (
     <>
       <Header/>
-      <ul>
+      <div>
         {projects.map(p => (
-          <li key={p.id}>
-            <Link to={`/project_detail/${p.id}`}>
-              <div></div>
-              <div>{p.title}</div>
-            </Link>
-          </li>
+          <ProjectDetails project={p} key={p.id}/>
         ))}
-      </ul>
+      </div>
     </>
   )
 }
