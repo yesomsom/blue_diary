@@ -2,7 +2,6 @@ import React from "react";
 import iconPlus from '../img/icon_plus_75.png';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import blueOcean from '../img/blue_ocean.jpg';
 
 export default function Header() {
   return (
@@ -28,7 +27,7 @@ const HeaderWrap = styled.div`
 `;
 
 const HeaderTitle = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   padding: 10px;
   position: relative;
   top: 5px;
