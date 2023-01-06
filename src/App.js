@@ -32,3 +32,12 @@ export default App;
 
 // Home
 // http://localhost:3003
+
+/* REST API */
+// CREAT : POST
+// READ : GET
+// UPDATE : PUT
+// DELETE : DELETE
+
+/* typescript */
+// npm install typescript @types/node @types/react @types/react-dom @types/jest @types/react-router-dom @types/styled-components
