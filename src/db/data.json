@@ -36,13 +36,6 @@
       "id": 5
     },
     {
-      "title": "쏘쏘",
-      "feeling": "",
-      "content": "ㅇㅇ",
-      "date": "2023-01-06",
-      "id": 6
-    },
-    {
       "title": "ㅎㅎㅎ",
       "feeling": "crying",
       "content": "ㅎㅎㅎㅎ",
@@ -50,32 +43,39 @@
       "id": 7
     },
     {
-      "title": "11",
+      "title": "우울하다..",
       "feeling": "frowning",
-      "content": "11",
+      "content": "ㅠㅠ",
       "date": "2023-01-06",
       "id": 8
     },
     {
-      "title": "ㄲㄱ",
+      "title": "되는 일이 없구만",
       "feeling": "pensive",
-      "content": "ㄱ",
+      "content": "..",
       "date": "2023-01-06",
       "id": 9
     },
     {
-      "title": "dddddddddddddddddddddddddddddddddddddddddd",
+      "title": "흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑",
       "feeling": "pensive",
       "content": "dddddddddddddddddddddddd",
       "date": "2023-01-06",
       "id": 10
     },
     {
-      "title": "1111111111111111111111111111111111",
+      "title": "오늘의 기분 맑음!!!",
       "feeling": "bigSmiling",
-      "content": "111111111111111111111111111",
+      "content": "기분 좋은 날",
       "date": "2023-01-06",
       "id": 11
+    },
+    {
+      "title": "오늘도 화이팅 ㅎㅎ",
+      "feeling": "smiling",
+      "content": "ㅎㅎ",
+      "date": "2023-01-06",
+      "id": 12
     }
   ]
 }
