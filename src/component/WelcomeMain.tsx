@@ -1,8 +1,8 @@
 import React from "react";
-import rightArrow from '../img/arrow_right_64.png';
-import blueOcean from '../img/blue_ocean.jpg';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import rightArrow from '../img/arrow_right_64.png';
+import blueOcean from '../img/blue_ocean.jpg';
 
 export default function WelcomeMain(){
 
