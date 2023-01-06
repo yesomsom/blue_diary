@@ -30,7 +30,7 @@ export default function ProjectCreate() {
   const [isLoading, setIsLoading] = useState(false);
 
   const titleRef = useRef<HTMLInputElement>(null);  
-  const contentRef = useRef<HTMLInputElement>(null);
+  const contentRef = useRef<HTMLTextAreaElement>(null);
   const feelingRef = useRef<HTMLInputElement>(null);
   
   function onSubmit(e: React.FormEvent) {
@@ -93,33 +93,34 @@ export default function ProjectCreate() {
       <Layout>
         <CreateProjectWrapper onSubmit={onSubmit}>
           <div>
-            <label>제목</label>
-            <input ref={titleRef} type="text" placeholder="title"></input>
+            <div className="mb_10">제목</div>
+            <input className="title_input" ref={titleRef} type="text" placeholder="title"></input>
           </div>
 
-          <div>
-            <label>오늘의 기분</label>
-            <div>
-              <button type="button" onClick={bigSmileFunc}><img src={bigSmiling}/></button>
-              <button type="button" onClick={smilingFunc}><img src={smiling}/></button>
-              <button type="button" onClick={cryingFunc}><img src={crying}/></button>
-              <button type="button" onClick={frowningFunc}><img src={frowning}/></button>
-              <button type="button" onClick={pensiveFunc}><img src={pensive}/></button>
+          <div className="mt_30">
+            <div className="mb_10">오늘의 기분</div>
+            <div className="bt_all">
+              <Button className={(chooseIcon == 'bigSmiling') ? 'btn_active' : ''} type="button" onClick={bigSmileFunc}><img className="btn_feeling" src={bigSmiling}/></Button>
+              <Button className={(chooseIcon == 'smiling') ? 'btn_active' : ''} type="button" onClick={smilingFunc}><img className="btn_feeling" src={smiling}/></Button>
+              <Button className={(chooseIcon == 'crying') ? 'btn_active' : ''} type="button" onClick={cryingFunc}><img className="btn_feeling" src={crying}/></Button>
+              <Button className={(chooseIcon == 'frowning') ? 'btn_active' : ''} type="button" onClick={frowningFunc}><img className="btn_feeling" src={frowning}/></Button>
+              <Button className={(chooseIcon == 'pensive') ? 'btn_active' : ''} type="button" onClick={pensiveFunc}><img className="btn_feeling" src={pensive}/></Button>
             </div>
             <input ref={feelingRef} type="hidden" value={chooseIcon}></input>
           </div>
 
-          <div>
-            <label>내용</label>
-            <input ref={contentRef} type="text" placeholder="content"></input>
+          <div className="mt_30">
+            <div className="mb_10">내용</div>
+            <textarea className="content_input" ref={contentRef} placeholder="content"></textarea>
           </div>
-          <div>
-            <label>작성일</label>
-            <span>{today}</span>
+          <div className="mb_10 date_right">
+            작성일 : {today}
           </div>
-          <div>
+          <div className="text_align_center">
             <button>저장</button>
-            <Link to="/personal_main">취소</Link>       
+            <button>
+              <Link to="/personal_main">취소</Link>
+            </button>
           </div>
         </CreateProjectWrapper>
       </Layout>
@@ -143,5 +144,24 @@ const CreateProjectWrapper = styled.form`
   background-color: #dce5e8de;
   text-align: left;
   padding: 40px;
+`;
+
+const Button = styled.button`
+  margin-right: 10px;
+  background: none;
+  border-radius: 10px;
+  border: 1px solid #a1a1a1;
+  cursor: pointer;
+
+  &:hover {
+    background: #c31e1efa;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  &.btn_active {
+    background: #c31e1efa;
+  }
+
 `;
 
