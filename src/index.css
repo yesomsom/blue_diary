@@ -112,8 +112,24 @@ a {
   border: 1.5px solid #074d7f80;
   float: left;
   border-radius: 25px;
-  line-height: 180px;
+  line-height: 190px;
   font-size: 25px;
+  color: white;
+}
+
+.st1 {
+  background-image: url('./img/img_christmasBalls_1920.jpg');
+  background-size: cover;
+}
+
+.st2 {
+  background-image: url('./img/img_antiqueBook_1920.jpg');
+  background-size: cover;
+}
+
+.st3 {
+  background-image: url('./img/img_buns_1920.jpg');
+  background-size: cover;
 }
 
 .btn_padding {
