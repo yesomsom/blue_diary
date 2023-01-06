@@ -117,10 +117,8 @@ export default function ProjectCreate() {
             작성일 : {today}
           </div>
           <div className="text_align_center">
-            <button>저장</button>
-            <button>
-              <Link to="/personal_main">취소</Link>
-            </button>
+            <button className="create_btn">저장</button>
+            <Link to="/personal_main"><button className="create_btn">취소</button></Link>
           </div>
         </CreateProjectWrapper>
       </Layout>
