@@ -37,11 +37,13 @@ const Wrap = styled.nav`
 
 const Button = styled.button`
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 8px;
-  background: #eee;
+  background: none;
   color: black;
   font-size: 12px;
+  width: 25px;
+  height: 25px;
 
   &:hover {
     background: #c31e1efa;
@@ -50,13 +52,13 @@ const Button = styled.button`
   }
 
   &[disabled] {
-    background: #aaa;
+    background: #4789bd;
     cursor: revert;
     transform: revert;
   }
 
   &[aria-current] {
-    background: rgb(255 234 63 / 54%);
+    background: #ccc;
     font-weight: bold;
     cursor: revert;
     transform: revert;
