@@ -40,6 +40,16 @@ a {
   margin-top: 30px;
 }
 
+.noto_font_400 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+
+.noto_font_300 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+
 
 /* App.js */
 .App {
@@ -74,22 +84,17 @@ a {
   }
 }
 
-.font_color_red {
+.font_color_red_noto {
   color: rgb(211 58 0);
   font-weight: 600;
   font-size: 16.5px;
 }
-.font_color_red:hover {
+.font_color_red_noto:hover {
   color:#0047c1;
 }
 
 .wrap {
   padding: 30px;
-}
-
-.noto_font {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 400;
 }
 
 .icon_right_arrow {
@@ -100,10 +105,15 @@ a {
   top: 10px;
 }
 
-.new_img {
+.new_story {
   margin: 20px;
   width: 200px;
   height: 200px;
+  border: 1.5px solid #074d7f80;
+  float: left;
+  border-radius: 25px;
+  line-height: 180px;
+  font-size: 25px;
 }
 
 .btn_padding {
@@ -181,3 +191,27 @@ a {
   color: whitesmoke;
 }
 
+
+/* ProjectDetail.tsx */
+.inner_line {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-image: linear-gradient(
+    rgb(255 255 255 / 39%), rgb(169 169 169 / 60%)
+  ),url('./img/img_oceanWithGirl_1920.jpg');
+  background-size: cover;
+}
+
+.modi_del_btn {
+  margin: 20px 5px 0px;
+  width: 50px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  background-color: #c4c4c4c9;
+}
+
+.modi_del_btn:hover {
+  background-color: #074d7f;
+  color: whitesmoke;
+}
