@@ -5,6 +5,8 @@ import { IProject } from './PersonalMain.tsx';
 import Header from './Header.tsx';
 import { useNavigate } from "react-router-dom";
 import FeelingImoticon from './FeelingImoticon.tsx';
+import styled from "styled-components";
+import oceanGirl from '../img/img_oceanWithGirl_1920.jpg';
 
 export default function ProjectDetail() {
 
@@ -81,43 +83,66 @@ export default function ProjectDetail() {
   return (
     <>
       <Header/>
-      {isModi ? 
-        <div>
-          <div>
-            <div>제목</div>
+      <Layout>
+        {isModi ? 
+          <ProjectDetailWrapper>
+            <div>
+              <div>제목</div>
+              {projectNum.map(p => (
+                <div key={p.id}>{p.title}</div>
+              ))}
+              <div>오늘의 기분</div>
+              {projectNum.map(p => (
+                <div key={p.id}><FeelingImoticon feel={p.feeling} /></div>
+              ))}            
+              <div>내용</div>
+              {projectNum.map(p => (
+                <div key={p.id}>{p.content}</div>
+              ))}
+            </div>
+            <div>작성일</div>
             {projectNum.map(p => (
-              <div key={p.id}>{p.title}</div>
-            ))}
-            <div>오늘의 기분</div>
-            {projectNum.map(p => (
-              <div key={p.id}><FeelingImoticon feel={p.feeling} /></div>
-            ))}            
-            <div>내용</div>
-            {projectNum.map(p => (
-              <div key={p.id}>{p.content}</div>
-            ))}
-          </div>
-          <div>작성일</div>
-          {projectNum.map(p => (
-              <div key={p.id}>{p.date}</div>
-            ))}
-          <button onClick={changeModifyVersion}>수정</button> 
-          <button onClick={del}>삭제</button>
-        </div>
-        :
-        <div>
-          <div>
-            <div>Title</div>
-            <input type="text" value={title} onChange={changeTitle}></input>
-            <div>Content</div>
-            <input type="text" value={content} onChange={changeContent}></input>
-          </div>
-          <div>Date</div>
-          <div>{date}</div> 
-          <button onClick={saveModify}>저장</button> 
-          <button onClick={del}>삭제</button>
-        </div>
-      }
+                <div key={p.id}>{p.date}</div>
+              ))}
+            <div className="text_align_center">
+              <button className="create_btn" onClick={changeModifyVersion}>수정</button> 
+              <button className="create_btn" onClick={del}>삭제</button>
+            </div>
+          </ProjectDetailWrapper>
+          :
+          <ProjectDetailWrapper>
+            <div>
+              <div className="mb_10">제목</div>
+              <input className="title_input" type="text" value={title} onChange={changeTitle}></input>
+              <div className="mb_10 mt_30">내용</div>
+              <textarea className="content_input" value={content} onChange={changeContent}></textarea>
+            </div>
+            <div className="mb_10 date_right">날짜: {date}</div> 
+            <div className="text_align_center">
+              <button className="create_btn" onClick={saveModify}>저장</button> 
+              <button className="create_btn" onClick={del}>삭제</button>
+            </div>
+          </ProjectDetailWrapper>
+        }
+      </Layout>
     </>
   )
 }
+
+const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(${oceanGirl});
+  background-size: cover;
+  height: 150vh;
+`;
+
+const ProjectDetailWrapper = styled.div`
+  border: 1px dashed #bbb;
+  width: 500px;
+  margin: 100px;
+  background-color: #ffffffdb;
+  text-align: left;
+  padding: 40px;
+`;
