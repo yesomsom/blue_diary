@@ -107,9 +107,12 @@ a {
   top: 10px;
   padding-bottom: 30px;
   overflow: hidden;
+  height: 40px;
 }
 
 .proj_date {
   position: relative;
   bottom: -20px;
 }
+
+/* ProjectCreate.tsx */
