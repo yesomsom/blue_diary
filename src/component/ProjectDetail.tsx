@@ -86,31 +86,32 @@ export default function ProjectDetail() {
       <Layout>
         {isModi ? 
           <ProjectDetailWrapper>
-            <div>
-              <div>제목</div>
-              {projectNum.map(p => (
-                <div key={p.id}>{p.title}</div>
-              ))}
-              <div>오늘의 기분</div>
-              {projectNum.map(p => (
-                <div key={p.id}><FeelingImoticon feel={p.feeling} /></div>
-              ))}            
-              <div>내용</div>
-              {projectNum.map(p => (
-                <div key={p.id}>{p.content}</div>
-              ))}
+            <div className="inner_line">
+              <div>
+                <div className="mb_10 noto_font_400">제목</div>
+                {projectNum.map(p => (
+                  <div className="noto_font_300" key={p.id}>{p.title}</div>
+                ))}
+                <div className="mt_30 mb_10 noto_font_400">오늘의 기분</div>
+                {projectNum.map(p => (
+                  <div className="noto_font_con" key={p.id}><FeelingImoticon feel={p.feeling} /></div>
+                ))}            
+                <div className="mt_30 mb_10 noto_font_400">내용</div>
+                {projectNum.map(p => (
+                  <div className="noto_font_300" key={p.id}>{p.content}</div>
+                ))}
+              </div>
             </div>
-            <div>작성일</div>
-            {projectNum.map(p => (
-                <div key={p.id}>{p.date}</div>
-              ))}
             <div className="text_align_center">
-              <button className="create_btn" onClick={changeModifyVersion}>수정</button> 
-              <button className="create_btn" onClick={del}>삭제</button>
+              <button className="modi_del_btn" onClick={changeModifyVersion}>수정</button> 
+              <button className="modi_del_btn" onClick={del}>삭제</button>
             </div>
+            {projectNum.map(p => (
+                <div className="date_position date_right" key={p.id}>작성일 {p.date}</div>
+              ))}
           </ProjectDetailWrapper>
           :
-          <ProjectDetailWrapper>
+          <ProjectDetailWrapperModi>
             <div>
               <div className="mb_10">제목</div>
               <input className="title_input" type="text" value={title} onChange={changeTitle}></input>
@@ -122,7 +123,7 @@ export default function ProjectDetail() {
               <button className="create_btn" onClick={saveModify}>저장</button> 
               <button className="create_btn" onClick={del}>삭제</button>
             </div>
-          </ProjectDetailWrapper>
+          </ProjectDetailWrapperModi>
         }
       </Layout>
     </>
@@ -139,6 +140,15 @@ const Layout = styled.div`
 `;
 
 const ProjectDetailWrapper = styled.div`
+  border: 1px dashed #bbb;
+  width: 500px;
+  margin: 100px;
+  background-color: #ffffffdb;
+  text-align: left;
+  padding: 40px 40px 15px 40px;
+`;
+
+const ProjectDetailWrapperModi = styled.div`
   border: 1px dashed #bbb;
   width: 500px;
   margin: 100px;
