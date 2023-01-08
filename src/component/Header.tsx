@@ -1,5 +1,4 @@
 import React from "react";
-import iconPlus from '../img/icon_plus_75.png';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 

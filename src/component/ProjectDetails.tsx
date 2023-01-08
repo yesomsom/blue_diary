@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { IProject } from './PersonalMain.tsx';
 import FeelingImoticon from './FeelingImoticon.tsx';
@@ -26,4 +26,5 @@ const ProjectWrapper = styled.div`
   width: 200px;
   height: 200px;
   margin:10px;
+  background: #fdfdfd;
 `;
