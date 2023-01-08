@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useRef } from "react";
 import bigSmiling from '../img/icon_big_smiling_96.png';
 import smiling from '../img/icon_smiling_96.png';
 import crying from '../img/icon_crying_96.png';
@@ -34,7 +33,7 @@ export default function ProjectCreate() {
   const feelingRef = useRef<HTMLInputElement>(null);
   
   function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
+    e.preventDefault(); // 버튼 눌러도 새로고침 되지 않음
 
     if(!isLoading && titleRef.current && contentRef.current && feelingRef.current) {
       setIsLoading(true);
