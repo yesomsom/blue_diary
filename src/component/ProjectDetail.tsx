@@ -1,9 +1,8 @@
 import React, { useState} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from '../hook/useFetch.ts';
 import { IProject } from './PersonalMain.tsx';
 import Header from './Header.tsx';
-import { useNavigate } from "react-router-dom";
 import FeelingImoticon from './FeelingImoticon.tsx';
 import styled from "styled-components";
 import oceanGirl from '../img/img_oceanWithGirl_1920.jpg';
