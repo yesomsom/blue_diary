@@ -1,13 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import bigSmiling from '../img/icon_big_smiling_96.png';
-import smiling from '../img/icon_smiling_96.png';
-import crying from '../img/icon_crying_96.png';
-import frowning from '../img/icon_frowning_96.png';
-import pensive from '../img/icon_pensive_96.png';
-import imgWave from '../img/img_maldives_1920.jpg';
-import Header from './Header.tsx';
 import styled from "styled-components";
+import Header from './Header.tsx';
+import ChooseImoticon from "./ChooseImoticon.tsx";
+import imgWave from '../img/img_maldives_1920.jpg';
 
 // 오늘 날짜 설정
 // 형식 YYYY-MM-DD
@@ -65,26 +61,6 @@ export default function ProjectCreate() {
   }
 
   const [chooseIcon, setChooseIcon] = useState('');
-
-  function bigSmileFunc() {
-    setChooseIcon('bigSmiling');
-  }
-
-  function smilingFunc() {
-    setChooseIcon('smiling');
-  }
-
-  function cryingFunc() {
-    setChooseIcon('crying');
-  }
-
-  function frowningFunc() {
-    setChooseIcon('frowning');
-  }
-
-  function pensiveFunc() {
-    setChooseIcon('pensive');
-  }
   
   return (
     <>
@@ -98,13 +74,7 @@ export default function ProjectCreate() {
 
           <div className="mt_30">
             <div className="mb_10">오늘의 기분</div>
-            <div className="bt_all">
-              <Button className={(chooseIcon == 'bigSmiling') ? 'btn_active' : ''} type="button" onClick={bigSmileFunc}><img className="btn_feeling" src={bigSmiling}/></Button>
-              <Button className={(chooseIcon == 'smiling') ? 'btn_active' : ''} type="button" onClick={smilingFunc}><img className="btn_feeling" src={smiling}/></Button>
-              <Button className={(chooseIcon == 'crying') ? 'btn_active' : ''} type="button" onClick={cryingFunc}><img className="btn_feeling" src={crying}/></Button>
-              <Button className={(chooseIcon == 'frowning') ? 'btn_active' : ''} type="button" onClick={frowningFunc}><img className="btn_feeling" src={frowning}/></Button>
-              <Button className={(chooseIcon == 'pensive') ? 'btn_active' : ''} type="button" onClick={pensiveFunc}><img className="btn_feeling" src={pensive}/></Button>
-            </div>
+            <ChooseImoticon setChooseIcon={setChooseIcon}/>
             <input ref={feelingRef} type="hidden" value={chooseIcon}></input>
           </div>
 

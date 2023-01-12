@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import useFetch from '../hook/useFetch.ts';
 import { IProject } from './PersonalMain.tsx';
 import Header from './Header.tsx';
 import FeelingImoticon from './FeelingImoticon.tsx';
-import styled from "styled-components";
+import ChooseImoticon from "./ChooseImoticon.tsx";
 import oceanGirl from '../img/img_oceanWithGirl_1920.jpg';
 
 export default function ProjectDetail() {
@@ -20,6 +21,7 @@ export default function ProjectDetail() {
   const [feeling, setFeeling] = useState('');
   const [content, setContent] = useState('');
   const [date, setDate] = useState('');
+  const [chooseIcon, setChooseIcon] = useState('');
 
 
   // 입력한 값으로 제목 변경
@@ -31,6 +33,12 @@ export default function ProjectDetail() {
   function changeContent(e) {
     setContent(e.target.value);
   }
+
+    // 입력한 값으로 feeling 변경
+    function changeFeeling(e) {
+      setFeeling(e.target.value);
+      alert(feeling);
+    }
 
   // 수정하기 모드로 변경
   function changeModifyVersion() {
@@ -114,6 +122,9 @@ export default function ProjectDetail() {
             <div>
               <div className="mb_10">제목</div>
               <input className="title_input" type="text" value={title} onChange={changeTitle}></input>
+              <div className="mb_10 mt_30">기분</div>
+              <ChooseImoticon setChooseIcon={setChooseIcon}/>
+              <input value={chooseIcon} onChange={changeFeeling}></input>
               <div className="mb_10 mt_30">내용</div>
               <textarea className="content_input" value={content} onChange={changeContent}></textarea>
             </div>
