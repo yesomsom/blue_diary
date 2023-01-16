@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import useFetch from '../hook/useFetch.ts';
 import { IProject } from './PersonalMain.tsx';
@@ -127,6 +127,9 @@ export default function ProjectDetail() {
               </div>
             </div>
             <div className="text_align_center">
+              <Link to="/personal_main">
+                <button className="modi_del_btn">목록</button>
+              </Link>
               <button className="modi_del_btn" onClick={changeModifyVersion}>수정</button> 
               <button className="modi_del_btn" onClick={del}>삭제</button>
             </div>
