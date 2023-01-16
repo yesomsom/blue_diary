@@ -24,12 +24,12 @@ export default function ProjectDetail() {
   const [chooseIcon, setChooseIcon] = useState('');
 
   // 입력한 값으로 제목 변경
-  function changeTitle(e) {
+  function changeTitle(e: React.ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value);
   }
 
   // 입력한 값으로 내용 변경
-  function changeContent(e) {
+  function changeContent(e: React.ChangeEvent<HTMLTextAreaElement>) {
     setContent(e.target.value);
   }
 

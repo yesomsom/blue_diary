@@ -111,6 +111,20 @@
       "content": "happy day",
       "date": "2023-01-12",
       "id": 18
+    },
+    {
+      "title": "ㅎㅎㅎㅎ",
+      "feeling": "bigSmiling",
+      "content": "ㅎㅎㅎ",
+      "date": "2023-01-12",
+      "id": 19
+    },
+    {
+      "title": "ㄴㄴ",
+      "feeling": "bigSmiling",
+      "content": "ㄴㄴ",
+      "date": "2023-01-16",
+      "id": 20
     }
   ]
 }
