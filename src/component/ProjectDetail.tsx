@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useFetch from '../hook/useFetch.ts';
@@ -23,7 +23,6 @@ export default function ProjectDetail() {
   const [date, setDate] = useState('');
   const [chooseIcon, setChooseIcon] = useState('');
 
-
   // 입력한 값으로 제목 변경
   function changeTitle(e) {
     setTitle(e.target.value);
@@ -34,11 +33,6 @@ export default function ProjectDetail() {
     setContent(e.target.value);
   }
 
-    // 입력한 값으로 feeling 변경
-    function changeFeeling(e) {
-      setFeeling(e.target.value);
-      alert(feeling);
-    }
 
   // 수정하기 모드로 변경
   function changeModifyVersion() {
@@ -124,7 +118,6 @@ export default function ProjectDetail() {
               <input className="title_input" type="text" value={title} onChange={changeTitle}></input>
               <div className="mb_10 mt_30">기분</div>
               <ChooseImoticon setChooseIcon={setChooseIcon}/>
-              <input value={chooseIcon} onChange={changeFeeling}></input>
               <div className="mb_10 mt_30">내용</div>
               <textarea className="content_input" value={content} onChange={changeContent}></textarea>
             </div>
