@@ -2,17 +2,17 @@
   "project": [
     {
       "title": "새해가 밝았다.",
-      "feeling": "smiling",
+      "feeling": "bigSmiling",
       "content": "벌써 2023년이 되었다. 올해도 화이팅!!^^",
       "date": "2023-01-01",
       "id": 1
     },
     {
-      "id": 2,
       "title": "오늘의 기분, 맑음",
-      "feeling": "crying",
+      "feeling": "smiling",
       "content": "오늘은 오랜만에 친구들을 만나 옛날 얘기하면서 놀았다.",
-      "date": "2023-01-02"
+      "date": "2023-01-02",
+      "id": 2
     },
     {
       "title": "기분이 안좋아..",
@@ -58,7 +58,7 @@
     },
     {
       "title": "흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑흑",
-      "feeling": "pensive",
+      "feeling": "crying",
       "content": "dddddddddddddddddddddddd",
       "date": "2023-01-06",
       "id": 10

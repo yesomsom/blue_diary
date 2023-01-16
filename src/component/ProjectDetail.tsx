@@ -5,8 +5,12 @@ import useFetch from '../hook/useFetch.ts';
 import { IProject } from './PersonalMain.tsx';
 import Header from './Header.tsx';
 import FeelingImoticon from './FeelingImoticon.tsx';
-import ChooseImoticon from "./ChooseImoticon.tsx";
 import oceanGirl from '../img/img_oceanWithGirl_1920.jpg';
+import bigSmiling from '../img/icon_big_smiling_96.png';
+import smiling from '../img/icon_smiling_96.png';
+import crying from '../img/icon_crying_96.png';
+import frowning from '../img/icon_frowning_96.png';
+import pensive from '../img/icon_pensive_96.png';
 
 export default function ProjectDetail() {
 
@@ -21,7 +25,26 @@ export default function ProjectDetail() {
   const [feeling, setFeeling] = useState('');
   const [content, setContent] = useState('');
   const [date, setDate] = useState('');
-  const [chooseIcon, setChooseIcon] = useState('');
+
+  function bigSmileFunc() {
+    setFeeling('bigSmiling');
+  }
+
+  function smilingFunc() {
+    setFeeling('smiling');
+  }
+
+  function cryingFunc() {
+    setFeeling('crying');
+  }
+
+  function frowningFunc() {
+    setFeeling('frowning');
+  }
+
+  function pensiveFunc() {
+    setFeeling('pensive');
+  }
 
   // 입력한 값으로 제목 변경
   function changeTitle(e: React.ChangeEvent<HTMLInputElement>) {
@@ -117,7 +140,13 @@ export default function ProjectDetail() {
               <div className="mb_10">제목</div>
               <input className="title_input" type="text" value={title} onChange={changeTitle}></input>
               <div className="mb_10 mt_30">기분</div>
-              <ChooseImoticon setChooseIcon={setChooseIcon}/>
+              <div className="bt_all">
+                <Button className={(feeling == 'bigSmiling') ? 'btn_active' : ''} type="button" onClick={bigSmileFunc}><img className="btn_feeling" src={bigSmiling}/></Button>
+                <Button className={(feeling == 'smiling') ? 'btn_active' : ''} type="button" onClick={smilingFunc}><img className="btn_feeling" src={smiling}/></Button>
+                <Button className={(feeling == 'crying') ? 'btn_active' : ''} type="button" onClick={cryingFunc}><img className="btn_feeling" src={crying}/></Button>
+                <Button className={(feeling == 'frowning') ? 'btn_active' : ''} type="button" onClick={frowningFunc}><img className="btn_feeling" src={frowning}/></Button>
+                <Button className={(feeling == 'pensive') ? 'btn_active' : ''} type="button" onClick={pensiveFunc}><img className="btn_feeling" src={pensive}/></Button>
+              </div> 
               <div className="mb_10 mt_30">내용</div>
               <textarea className="content_input" value={content} onChange={changeContent}></textarea>
             </div>
@@ -158,4 +187,23 @@ const ProjectDetailWrapperModi = styled.div`
   background-color: #ffffffdb;
   text-align: left;
   padding: 40px;
+`;
+
+const Button = styled.button`
+  margin-right: 10px;
+  background: none;
+  border-radius: 10px;
+  border: 1px solid #a1a1a1;
+  cursor: pointer;
+
+  &:hover {
+    background: #c31e1efa;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  &.btn_active {
+    background: #c31e1efa;
+  }
+
 `;
