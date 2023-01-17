@@ -1,2 +1,5 @@
 # blue_diary
-Write your story
+
+✔ react.js
+✔ Typescript
+
