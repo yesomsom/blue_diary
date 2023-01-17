@@ -18,7 +18,7 @@ export default function PersonalMain() {
 
   const projects: IProject[] = useFetch("http://localhost:3003/project");
 
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(15);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
